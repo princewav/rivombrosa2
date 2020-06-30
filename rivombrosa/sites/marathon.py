@@ -4,8 +4,7 @@ from rivombrosa.utilitites.utils import subdivide, get_soup
 book = 'marathon'
 
 
-def get_prices():
-    url = 'https://www.marathonbet.it/it/popular/Football/Italy/Serie+A+-+22434'
+def get_prices(url):
     soup = get_soup(url)
 
     teams = subdivide([x.text for x in soup.select('tbody .member-link span')], 2)
@@ -18,5 +17,6 @@ def get_prices():
 
 
 if __name__ == '__main__':
-    prices = get_prices()
+    url = 'https://www.marathonbet.it/it/popular/Football/Italy/Serie+A+-+22434'
+    prices = get_prices(url)
     print(prices)

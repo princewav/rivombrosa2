@@ -15,9 +15,10 @@ def get_odds_by_id(straights, id):
                 '2': from_american_to_decimal(get_from_list_of_dicts(straight['prices'], 'designation', 'away').get('price') or 0)}
 
 
-def get_prices():
-    matchups_url = 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2436/matchups'
-    straights_url = 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2436/markets/straight'
+def get_prices(url):
+
+    matchups_url = url
+    straights_url = f'{url.rsplit("/", 1)[0]}/markets/straight'
     matchups = requests.get(matchups_url, headers=headers).json()
     straights = requests.get(straights_url, headers=headers).json()
     results = {}
@@ -34,5 +35,6 @@ def get_prices():
 
 
 if __name__ == '__main__':
-    prices = get_prices()
+    url = 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2436/matchups'
+    prices = get_prices(url)
     print(prices)
