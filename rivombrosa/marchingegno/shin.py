@@ -16,7 +16,7 @@ def booksum(odds):
 
 def get_z(odds):
     z = 0
-    for i in range(2000):
+    for i in range(500):
         z = sum([sqrt(square(z) + 4 * (1 - z) * (square(inv(odd)) / booksum(odds))) for odd in odds]) - 2
     return z
 

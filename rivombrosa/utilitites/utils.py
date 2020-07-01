@@ -12,6 +12,9 @@ def get_soup(url):
 def get_from_list_of_dicts(list_of_dicts, key, value):
     return ([x for x in list_of_dicts if x.get(key) == value] or [{}])[0]
 
+def get_from_list_of_dicts_multiple(list_of_dicts, key, value):
+    return ([x for x in list_of_dicts if x.get(key) == value] or [{}])
+
 
 def subdivide(l, n):
     total, sub = [], []

@@ -17,6 +17,6 @@ def get_prices(url):
 
 
 if __name__ == '__main__':
-    url = 'https://www.marathonbet.it/it/popular/Football/Italy/Serie+A+-+22434'
+    url = 'https://www.marathonbet.it/it/popular/Football/Portugal/Primeira+Liga+-+43058'
     prices = get_prices(url)
     print(prices)
