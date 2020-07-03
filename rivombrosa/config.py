@@ -45,10 +45,10 @@ teams_mapping = {
         # ing
         'West Ham United': 'West Ham', 'Watford': 'Watford', 'Burnley': 'Burnley', 'Sheffield United': 'Sheffield', 'Bournemouth': 'Bournemouth',
         'Tottenham Hotspur': 'Tottenham', 'Leicester City': 'Leicester', 'Arsenal': 'Arsenal', 'Newcastle United': 'Newcastle',
-        'Manchester City': 'Manchester City', 'Southampton': 'Southampton', 'Chelsea': 'Chelsea', 'Brighton & Hove Albion': 'Brighton',
-        'Norwich City': 'Norwich', 'Wolves': 'Wolverhampton', 'Liverpool': 'Liverpool', 'Everton': 'Everton',
+        'Manchester City': 'Man City', 'Southampton': 'Southampton', 'Chelsea': 'Chelsea', 'Brighton & Hove Albion': 'Brighton',
+        'Norwich City': 'Norwich', 'Wolves': 'Wolves', 'Liverpool': 'Liverpool', 'Everton': 'Everton',
+        'Aston Villa': 'Aston Villa', 'Manchester United': 'Man United', 'Crystal Palace': 'Crystal Palace',
         # spa
-        'Aston Villa': 'Aston Villa', 'Manchester United': 'Manchester United', 'Crystal Palace': 'Crystal Palace',
         'Atletico Madrid': 'Atletico Madrid', 'Leganes': 'Leganes', 'Villarreal CF': 'Villarreal', 'Espanyol': 'Espanyol', 'Levante UD': 'Levante',
         'Real Madrid': 'Real Madrid', 'Osasuna': 'Osasuna', 'Athletic Club Bilbao': 'Athletic Bilbao', 'Real Valladolid CF': 'Valladolid',
         'Real Betis': 'Betis', 'Mallorca': 'Mallorca', 'Eibar': 'Eibar', 'Barcelona': 'Barcelona', 'Alaves': 'Alaves', 'Getafe': 'Getafe', 'Granada CF': 'Granada',
@@ -70,9 +70,9 @@ teams_mapping = {
         # ing
         'West Ham United': 'West Ham', 'Watford': 'Watford', 'Burnley': 'Burnley', 'Sheffield United': 'Sheffield', 'Bournemouth': 'Bournemouth',
         'Tottenham Hotspur': 'Tottenham', 'Leicester City': 'Leicester', 'Arsenal': 'Arsenal', 'Newcastle United': 'Newcastle',
-        'Manchester City': 'Manchester City', 'Southampton': 'Southampton', 'Chelsea': 'Chelsea', 'Brighton & Hove Albion': 'Brighton',
-        'Norwich City': 'Norwich', 'Wolverhampton Wanderers': 'Wolverhampton', 'Liverpool': 'Liverpool', 'Everton': 'Everton',
-        'Aston Villa': 'Aston Villa', 'Manchester United': 'Manchester United', 'Crystal Palace': 'Crystal Palace',
+        'Manchester City': 'Man City', 'Southampton': 'Southampton', 'Chelsea': 'Chelsea', 'Brighton & Hove Albion': 'Brighton',
+        'Norwich City': 'Norwich', 'Wolverhampton Wanderers': 'Wolves', 'Liverpool': 'Liverpool', 'Everton': 'Everton',
+        'Aston Villa': 'Aston Villa', 'Manchester United': 'Man United', 'Crystal Palace': 'Crystal Palace',
         # spa
         'Betis': 'Betis', 'Maiorca': 'Mallorca', 'Barcellona': 'Barcelona', 'Valencia': 'Valencia', 'Villarreal': 'Villarreal', 'Osasuna': 'Osasuna',
         'Real Sociedad': 'Real Sociedad', 'Eibar': 'Eibar', 'Alaves': 'Alaves', 'Levante': 'Levante', 'Athletic Bilbao': 'Athletic Bilbao', 'Valladolid': 'Valladolid',
