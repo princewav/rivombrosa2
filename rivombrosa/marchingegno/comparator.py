@@ -1,9 +1,12 @@
-from pprint import pprint
+from pprint import pprint, pformat
 
 from rivombrosa.config import urls_per_country, tiers
 from rivombrosa.marchingegno.shin import get_real_odds
 from rivombrosa.sites.marathon import get_prices as get_marathon_prices
 from rivombrosa.sites.pinnacle import get_prices as get_pinnacle_prices
+
+import clipboard
+
 
 
 def get_tiers():
@@ -18,23 +21,46 @@ def get_tiers():
 
                 if marathon_odds:
                     value_coeffs = {
-                        '1': {'coeff': 1 / real_odds['1'] - 1 / marathon_odds['1'], 'marathon': marathon_odds['1'], 'stake': int(10 / (marathon_odds['1'] - 1))},
-                        'X': {'coeff': 1 / real_odds['X'] - 1 / marathon_odds['X'], 'marathon': marathon_odds['X'], 'stake': int(10 / (marathon_odds['X'] - 1))},
-                        '2': {'coeff': 1 / real_odds['2'] - 1 / marathon_odds['2'], 'marathon': marathon_odds['2'], 'stake': int(10 / (marathon_odds['2'] - 1))},
+                        '1': {'coeff': 1 / real_odds['1'] - 1 / marathon_odds['1'], 'marathon': marathon_odds['1'],
+                              'stake': int(10 / (marathon_odds['1'] - 1)),
+                              'real': real_odds['1'],
+                              'pinna': pinnacle_odds['1'],
+                              'z': real_odds['z'],
+                              'incr': (((1 / pinnacle_odds['1']) - (1 / real_odds['1'])) / (1 / pinnacle_odds['1'])) * 100,
+                              'incrodds': ((real_odds['1'] - pinnacle_odds['1']) /  pinnacle_odds['1']) * 100,
+                              },
+                        'X': {'coeff': 1 / real_odds['X'] - 1 / marathon_odds['X'], 'marathon': marathon_odds['X'],
+                              'stake': int(10 / (marathon_odds['X'] - 1)),
+                              'z': real_odds['z'],
+                              'real': real_odds['X'],
+                              'pinna': pinnacle_odds['X'],
+                              'incr': (((1 / pinnacle_odds['X']) - (1 / real_odds['X'])) / (1 / pinnacle_odds['X'])) * 100,
+                              'incrodds': ((real_odds['X'] - pinnacle_odds['X']) /  pinnacle_odds['X']) * 100,
+                              },
+                        '2': {'coeff': 1 / real_odds['2'] - 1 / marathon_odds['2'], 'marathon': marathon_odds['2'],
+                              'stake': int(10 / (marathon_odds['2'] - 1)),
+                              'z': real_odds['z'],
+                              'real': real_odds['2'],
+                              'pinna': pinnacle_odds['2'],
+                              'incr': (((1 / pinnacle_odds['2']) - (1 / real_odds['2'])) / (1 / pinnacle_odds['2'])) * 100,
+                              'incrodds': ((real_odds['2'] - pinnacle_odds['2']) /  pinnacle_odds['2']) * 100,
+                              },
                     }
                     for k in value_coeffs:
                         value_coeffs[k]['coeff'] = round((value_coeffs[k]['coeff'] * 100), 3)
 
                     for k in value_coeffs:
                         if value_coeffs[k]['coeff'] > 1.25:
-                            tiers[country]['tier_1'].append({'match':f'{match}', 'outcome': k, **value_coeffs[k]})
+                            tiers[country]['tier_1'].append({'match': f'{match}', 'outcome': k, **value_coeffs[k]})
                         elif value_coeffs[k]['coeff'] > 1:
-                            tiers[country]['tier_2'].append({'match':f'{match}', 'outcome': k, **value_coeffs[k]})
-                        elif value_coeffs[k]['coeff'] > 0.75:
-                            tiers[country]['tier_3'].append({'match':f'{match}', 'outcome': k, **value_coeffs[k]})
+                            tiers[country]['tier_2'].append({'match': f'{match}', 'outcome': k, **value_coeffs[k]})
+                        elif value_coeffs[k]['coeff'] > 0.35:
+                            tiers[country]['tier_3'].append({'match': f'{match}', 'outcome': k, **value_coeffs[k]})
 
-    return(tiers)
+    return (tiers)
+
 
 if __name__ == '__main__':
+    tiers = get_tiers()
     pprint(tiers)
-
+    clipboard.copy(pformat(tiers))

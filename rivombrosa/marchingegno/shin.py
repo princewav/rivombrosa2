@@ -31,4 +31,6 @@ def get_real_odds(odds):
                 / (2 - 2 * z)
         )
         total.append(inv(p))
-    return {'1': total[0], 'X': total[1], '2': total[2]}
+    return {'1': total[0], 'X': total[1], '2': total[2], 'z': z}
+
+
