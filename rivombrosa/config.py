@@ -3,7 +3,7 @@ headers = {
     'pragma': 'no-cache',
     'cache-control': 'no-cache',
     'accept': 'application/json',
-    'x-device-uuid': 'e5f83264-4afb5bcf-47bea0d1-93b5b53f',
+    # 'x-device-uuid': 'e5f83264-4afb5bcf-47bea0d1-93b5b53f',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
     'x-api-key': 'CmX2KcMrXuFmNg6YFbmTxE0y9CIrOi0R',
     'content-type': 'application/json',
@@ -11,8 +11,8 @@ headers = {
     'sec-fetch-site': 'cross-site',
     'sec-fetch-mode': 'cors',
     'sec-fetch-dest': 'empty',
-    'referer': 'https://www.pinnacle.bet/it/soccer/italy-serie-a/matchups/',
-    'accept-language': 'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7,nl;q=0.6',
+    # 'referer': 'https://www.pinnacle.bet/it/soccer/italy-serie-a/matchups/',
+    # 'accept-language': 'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7,nl;q=0.6',
 }
 
 urls_per_country = {
@@ -91,3 +91,4 @@ teams_mapping = {
 }
 
 EXPECTED_EARNING = 10
+BUDGET = 323

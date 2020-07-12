@@ -25,8 +25,8 @@ def get_odds_by_id(straights, id):
 def get_prices(url):
     matchups_url = url
     straights_url = f'{url.rsplit("/", 1)[0]}/markets/straight'
-    matchups = requests.get(matchups_url, headers=headers).json()
-    straights = requests.get(straights_url, headers=headers).json()
+    matchups = requests.get(matchups_url, headers=headers, proxies={'http':'','https':''}).json()
+    straights = requests.get(straights_url, headers=headers, proxies={'http':'','https':''}).json()
     results = {}
     teams_map = teams_mapping[book]
 

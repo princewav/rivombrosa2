@@ -1,7 +1,7 @@
 from pprint import pprint, pformat
 
-from rivombrosa.config import urls_per_country, tiers
-from rivombrosa.marchingegno.shin import get_real_odds, calcola_e, calcola_x
+from rivombrosa.config import urls_per_country, tiers, BUDGET
+from rivombrosa.marchingegno.shin import get_real_odds, calcola_e, calcola_x, calcola_kelly
 from rivombrosa.sites.marathon import get_prices as get_marathon_prices
 from rivombrosa.sites.pinnacle import get_prices as get_pinnacle_prices
 
@@ -23,14 +23,14 @@ def get_tiers():
                     value_coeffs = {
                         '1': {'coeff': 1 / real_odds['1'] - 1 / marathon_odds['1'],
                               'marathon': marathon_odds['1'],
-                              'stake': int(10 / (marathon_odds['1'] - 1)),
+                              'stakeone': int(round(calcola_x(1, marathon_odds['1'], real_odds['1']))),
+                              'stakelly': int(round(calcola_kelly(BUDGET, marathon_odds['1'], real_odds['1']))) * 2,
+                              'esps': calcola_e(20, marathon_odds['1'], real_odds['1']),
                               # 'allp': f'{pinnacle_odds["1"]} ({real_odds["1"]})  /// {pinnacle_odds["2"]} ({real_odds["2"]})',
                               # 'allm': f'{marathon_odds["1"]} ({real_odds_mara["1"]}) /// {marathon_odds["2"]} ({real_odds_mara["2"]})',
                               # 'ep': {1: calcola_e(20, pinnacle_odds['1'], real_odds['1']), 2: calcola_e(20, pinnacle_odds['2'], real_odds['2'])},
                               # 'em': {1: calcola_e(20, marathon_odds['1'], real_odds_mara['1']), 2: calcola_e(20, marathon_odds['2'], real_odds_mara['2'])},
                               # 'esps': {1: calcola_e(20, marathon_odds['1'], real_odds['1']), 2: calcola_e(20, marathon_odds['2'], real_odds['2'])},
-                              'stakeone': {1: calcola_x(1, marathon_odds['1'], real_odds['1']), 'x': calcola_x(1, marathon_odds['X'], real_odds['X']),
-                                           2: calcola_x(1, marathon_odds['2'], real_odds['2'])},
                               # 'real': real_odds['1'],
                               # 'pinna': pinnacle_odds['1'],
                               # 'z': real_odds['z'],
@@ -40,13 +40,13 @@ def get_tiers():
                         'X': {'coeff': 1 / real_odds['X'] - 1 / marathon_odds['X'],
                               'marathon': marathon_odds['X'],
                               'stake': int(10 / (marathon_odds['X'] - 1)),
-                              'stakeone': {1: calcola_x(1, marathon_odds['1'], real_odds['1']), 'x': calcola_x(1, marathon_odds['X'], real_odds['X']),
-                                           2: calcola_x(1, marathon_odds['2'], real_odds['2'])},
+                              'stakeone': int(round(calcola_x(1, marathon_odds['X'], real_odds['X']))),
+                              'stakelly': int(round(calcola_kelly(BUDGET, marathon_odds['X'], real_odds['X']))) * 2,
+                              'esps': calcola_e(20, marathon_odds['X'], real_odds['X']),
                               # 'all': f'{pinnacle_odds["1"]} ({real_odds["1"]})  /// \n{pinnacle_odds["2"]} ({real_odds["2"]})',
                               # 'allm': f'{marathon_odds["1"]} ({real_odds_mara["1"]}) /// {marathon_odds["2"]} ({real_odds_mara["2"]})',
                               # 'ep': {1: calcola_e(20, pinnacle_odds['1'], real_odds['1']), 2: calcola_e(20, pinnacle_odds['2'], real_odds['2'])},
                               # 'em': {1: calcola_e(20, marathon_odds['1'], real_odds['1']), 2: calcola_e(20, marathon_odds['2'], real_odds['2'])},
-                              # 'esps': {1: calcola_e(20, marathon_odds['1'], real_odds['1']), 2: calcola_e(20, marathon_odds['2'], real_odds['2'])},
                               # 'z': real_odds['z'],
                               # 'real': real_odds['X'],
                               # 'pinna': pinnacle_odds['X'],
@@ -56,8 +56,9 @@ def get_tiers():
                         '2': {'coeff': 1 / real_odds['2'] - 1 / marathon_odds['2'],
                               'marathon': marathon_odds['2'],
                               'stake': int(10 / (marathon_odds['2'] - 1)),
-                              'stakeone': {1: calcola_x(1, marathon_odds['1'], real_odds['1']), 'x': calcola_x(1, marathon_odds['X'], real_odds['X']),
-                                           2: calcola_x(1, marathon_odds['2'], real_odds['2'])},
+                              'stakeone': int(round(calcola_x(1, marathon_odds['2'], real_odds['2']))),
+                              'stakelly': int(round(calcola_kelly(BUDGET, marathon_odds['2'], real_odds['2']))) * 2,
+                              'esps': calcola_e(20, marathon_odds['2'], real_odds['2']),
                               # 'z': real_odds['z'],
                               # 'all': f'{pinnacle_odds["1"]} ({real_odds["1"]})  /// \n{pinnacle_odds["2"]} ({real_odds["2"]})',
                               # 'allm': f'{marathon_odds["1"]} ({real_odds_mara["1"]}) /// {marathon_odds["2"]} ({real_odds_mara["2"]})',
