@@ -34,3 +34,8 @@ def get_real_odds(odds):
     return {'1': total[0], 'X': total[1], '2': total[2], 'z': z}
 
 
+def calcola_e(x,pinna_odd, real_odd):
+    return x * (1 / real_odd) * (pinna_odd - 1) - x * (1 - 1 / real_odd)
+
+def calcola_x(e, mara_odd, real_odd):
+    return e / (mara_odd/real_odd - 1)
