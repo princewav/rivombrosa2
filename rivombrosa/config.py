@@ -16,16 +16,18 @@ headers = {
 }
 
 urls_per_country = {
-    'inghilterra': {'pinnacle': 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/1980/matchups',
-                    'marathon': 'https://www.marathonbet.it/it/betting/Football/England/Premier+League+-+21520'},
-    'spagna': {'pinnacle': 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2196/matchups',
-               'marathon': 'https://www.marathonbet.it/it/betting/Football/Spain/Primera+Division+-+8736'},
-    # 'russia': {'pinnacle': 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2406/matchups',
-    #            'marathon': 'https://www.marathonbet.it/it/betting/Football/Russia/Premier+League+-+22433'},
+    # 'inghilterra': {'pinnacle': 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/1980/matchups',
+    #                 'marathon': 'https://www.marathonbet.it/it/betting/Football/England/Premier+League+-+21520'},
+    # 'spagna': {'pinnacle': 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2196/matchups',
+    #            'marathon': 'https://www.marathonbet.it/it/betting/Football/Spain/Primera+Division+-+8736'},
+    # # 'russia': {'pinnacle': 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2406/matchups',
+    # #            'marathon': 'https://www.marathonbet.it/it/betting/Football/Russia/Premier+League+-+22433'},
     'italia': {'pinnacle': 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2436/matchups',
-               'marathon': 'https://www.marathonbet.it/it/popular/Football/Italy/Serie+A+-+22434'},
-    'portogallo': {'pinnacle': 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2386/matchups',
-                   'marathon': 'https://www.marathonbet.it/it/popular/Football/Portugal+-+21518'},
+               'marathon': 'https://www.marathonbet.it/it/popular/Football/Italy/Serie+A+-+22434',
+               'bet': 'https://mobile.bet365.it/#/AC/B1/C1/D13/E49487629/F2/',
+               },
+    # 'portogallo': {'pinnacle': 'https://guest.api.arcadia.pinnacle.com/0.1/leagues/2386/matchups',
+    #                'marathon': 'https://www.marathonbet.it/it/popular/Football/Portugal+-+21518'},
 }
 
 tiers = {

@@ -1,15 +1,17 @@
 from pprint import pprint
 
-from rivombrosa.config import urls_per_country, tiers
+from rivombrosa.config import urls_per_country, tiers as t
 from rivombrosa.marchingegno.shin import get_real_odds
-from rivombrosa.sites.marathon import get_prices as get_marathon_prices
+from rivombrosa.sites.bet import get_prices as get_marathon_prices
 from rivombrosa.sites.pinnacle import get_prices as get_pinnacle_prices
 
 
 def get_tiers():
     for country, urls in urls_per_country.items():
         pinnacle_data = get_pinnacle_prices(urls['pinnacle'])
-        marathon_data = get_marathon_prices(urls['marathon'])
+        marathon_data = get_marathon_prices(urls['bet'])
+
+        tiers = t.copy()
 
         for match, pinnacle_odds in pinnacle_data.items():
             if pinnacle_odds:
@@ -36,5 +38,5 @@ def get_tiers():
     return(tiers)
 
 if __name__ == '__main__':
-    pprint(tiers)
+    pprint(get_tiers())
 
